@@ -4,7 +4,7 @@ Personal Portfolio - Final Project for JavaScript course
 
 ## Getting Started
 
-To get started, simply copy the CSS, data, and images folder to your local machine. Also copy the index.html at the root level. Once they're on your local system, you can easily see the results of your code by opening index.html in your browser. If you do this, remember that any changes you make won't show up on the page until you refresh your browser tab.
+To get started, simply copy the CSS, data, and images folder to your local machine. Create an index.html document at the root level on your machine. Once they're on your local system, you can see the results of your code by opening index.html in your browser. If you do this, remember that any changes you make won't show up on the page until you refresh your browser tab.
 
 If you're using an editor like VSCode, you may want to install an extension for a live server. The Live Server extension from Ritwick Dey works well and also have live updates that will show any changes your make to you application without needing to refresh the page.
 
