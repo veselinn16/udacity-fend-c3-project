@@ -74,6 +74,10 @@ The project spotlight section should have this final structure...
 
 You'll also need to add listeners for the navigation buttons provided in the "projectNavArrows" div. Remember that the site is responsive and the layout changes at different screen sizes. You'll need to have them scroll horizontall at mobile screen sizes and vertically at desktop screen sizes. (HINT: Use the .matchMedia() method)
 
+**Notice that some of the projects are missing values.**
+
+This can happen a lot when using external APIs. You should be able to handle the missing data by providing some sort of fallback if some of the data in missing. You shouldn't see any part of the webpage as 'undefined.' You have two images in the images folder to handle missing image files: card_placeholder_bg.webp and spotlight_placeholder_bg.webp
+
 ### - Finish with form validation
 
 The provided HTML is purposely missing some of the native attributes that can help with form validation, like "maxLength" in the textarea element or the "email" type in the input element. Your next step is to add validation for the form element on submit. You don't need to actually submit the form. Simply display an alert that the form validation passed.

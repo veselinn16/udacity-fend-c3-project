@@ -13,7 +13,7 @@
     "project_name": "To-Do List App",
     "short_description": "Organize your tasks efficiently.",
     "long_description": "Create a web or mobile app to help users manage their tasks, set deadlines, and prioritize their workload. This project is a good introduction to frontend development and basic backend logic.",
-    "card_image": "../images/todo_card.webp",
+
     "spotlight_image": "../images/todo_spotlight.webp",
     "url": "https://example.com/project2"
   },
@@ -23,13 +23,13 @@
     "short_description": "Build a basic calculator.",
     "long_description": "Develop a web-based or mobile calculator that can perform basic arithmetic operations. This project is a good starting point for learning fundamental programming concepts and user interface design.",
     "card_image": "../images/calculator_card.webp",
-    "spotlight_image": "../images/calculator_spotlight.webp",
+
     "url": "https://example.com/project3"
   },
   {
     "project_id": "project_store",
     "project_name": "E-commerce Store",
-    "short_description": "Create an online store.",
+
     "long_description": "Build a simple e-commerce website or app to sell products. This project involves frontend development, backend logic, and potentially database integration.",
     "card_image": "../images/commerce_card.webp",
     "spotlight_image": "../images/commerce_spotlight.webp",
@@ -39,7 +39,7 @@
     "project_id": "project_weather",
     "project_name": "Weather App",
     "short_description": "Get real-time weather updates.",
-    "long_description": "Develop a web or mobile app that displays current weather conditions, forecasts, and other relevant weather data. This project can involve working with APIs and data visualization.",
+
     "card_image": "../images/weather_app_card.webp",
     "spotlight_image": "../images/weather_app_spotlight.webp",
     "url": "https://example.com/project5"
@@ -50,8 +50,8 @@
     "short_description": "Share your thoughts and ideas.",
     "long_description": "Create a blog to express your opinions, share your knowledge, or document your experiences. This is a great way to build an online presence and connect with others.",
     "card_image": "../images/blog_card.webp",
-    "spotlight_image": "../images/blog_spotlight.webp",
-    "url": "https://example.com/project6"
+    "spotlight_image": "../images/blog_spotlight.webp"
+
   },
   {
     "project_id": "project_game",
