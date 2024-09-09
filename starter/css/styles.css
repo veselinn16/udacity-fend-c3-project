@@ -124,6 +124,10 @@ nav {
     display:flex;
     flex-direction:column;
     align-items: center;
+
+    & button {
+        align-self: flex-start;
+    }
 }
 
 #messageError, #emailError {
