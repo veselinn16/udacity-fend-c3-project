@@ -72,11 +72,11 @@ The project spotlight section should have this final structure...
 </div>
 ```
 
-You'll also need to add listeners for the navigation buttons provided in the "projectNavArrows" div. Remember that the site is responsive and the layout changes at different screen sizes. You'll need to have them scroll horizontall at mobile screen sizes and vertically at desktop screen sizes. (HINT: Use the .matchMedia() method)
-
 **Notice that some of the projects are missing values.**
 
 This can happen a lot when using external APIs. You should be able to handle the missing data by providing some sort of fallback if some of the data in missing. You shouldn't see any part of the webpage as 'undefined.' You have two images in the images folder to handle missing image files: card_placeholder_bg.webp and spotlight_placeholder_bg.webp
+
+You'll also need to add listeners for the navigation buttons provided in the "projectNavArrows" div. Remember that the site is responsive and the layout changes at different screen sizes. You'll need to have them scroll horizontally at mobile screen sizes and vertically at desktop screen sizes. (HINT: Use the .matchMedia() method)
 
 ### - Finish with form validation
 
@@ -101,5 +101,3 @@ valid email address = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 **Note that this regex is NOT a secure method to counter XSS attacks in your application. This is a general test to be used for this course but should not be your main line of defense in a production application.**
 
 If an input fails validation, there should be an error message that shows up giving the user details on why the submission failed. These should be updated with the "emailError" div and the "messageError" div.
-
-On a successful validation, show an alert message saying the submission was successful. You don't need to actually submiit the data.
