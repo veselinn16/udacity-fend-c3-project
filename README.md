@@ -1,6 +1,4 @@
-# Project Title
-
-Personal Portfolio - Final Project for JavaScript course
+# Personal Portfolio
 
 ## Getting Started
 
