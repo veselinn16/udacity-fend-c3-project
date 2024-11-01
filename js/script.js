@@ -20,7 +20,7 @@ const getAboutMeData = async () => {
         const headshotContainer = document.createElement("div")
         headshotContainer.className = 'headshotCotainer'
         const headshotImg = document.createElement("img")
-        headshotImg.src = headshot
+        headshotImg.src = "./images/headshot.webp"
         headshotImg.alt = 'headshot image'
         headshotImg.style.backgroundPosition = 'center center'
         headshotImg.style.backgroundRepeat = 'no-repeat'
@@ -60,8 +60,7 @@ const getProjectData = async () => {
             const projectContainer = document.createElement('div')
             projectContainer.className = 'projectCard'
             projectContainer.id = project_id
-            // projectContainer.style.background = `url(${(card_image || '').replace('..', '.') || './images/card_placeholder_bg.png'})`
-            projectContainer.style.background = card_image || '../images/card_placeholder_bg.png'
+            projectContainer.style.background = `url(${(card_image || '').replace('..', '.') || './images/card_placeholder_bg.png'})`
             projectContainer.style.backgroundPosition = 'center center'
             projectContainer.style.backgroundRepeat = 'no-repeat'
             projectContainer.style.backgroundSize = 'cover'
@@ -79,7 +78,7 @@ const getProjectData = async () => {
                 spotlightDescription.textContent = long_description || ''
                 spotlightLink.href = url || ''
                 spotlightLink.target = '_blank'
-                spotlightContainer.style.background = spotlight_image || '../images/spotlight_placeholder_bg.png'
+                spotlightContainer.style.background = `url(${(spotlight_image || '').replace('..', '.') || './images/spotlight_placeholder_bg.png'})`
                 spotlightContainer.style.backgroundPosition = 'center center'
                 spotlightContainer.style.backgroundRepeat = 'no-repeat'
                 spotlightContainer.style.backgroundSize = 'cover'
