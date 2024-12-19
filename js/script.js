@@ -8,28 +8,30 @@ const messageCharsLimit = 300
 const getAboutMeData = async () => {
     // fetch data for about me section
     const response = await fetch('./data/aboutMeData.json')
-    const data = await response.json()
-    const { aboutMe, headshot } = data || {}
-    if (aboutMe && headshot) {
-        // select container
-        const aboutMeContainer = document.querySelector('#aboutMe')
-        // create paragraph
-        const aboutMeText = document.createElement("p")
-        aboutMeText.textContent = aboutMe
-        // create image
-        const headshotContainer = document.createElement("div")
-        headshotContainer.className = 'headshotCotainer'
-        const headshotImg = document.createElement("img")
-        headshotImg.src = "./images/headshot.webp"
-        headshotImg.alt = 'headshot image'
-        headshotImg.style.backgroundPosition = 'center center'
-        headshotImg.style.backgroundRepeat = 'no-repeat'
-        headshotImg.style.backgroundSize = 'cover'
-        // append paragraph
-        aboutMeContainer.appendChild(aboutMeText)
-        // append image
-        aboutMeContainer.appendChild(headshotContainer)
-        headshotContainer.appendChild(headshotImg)
+    if (response.ok) {
+        const data = await response.json()
+        const { aboutMe, headshot } = data || {}
+        if (aboutMe && headshot) {
+            // select container
+            const aboutMeContainer = document.querySelector('#aboutMe')
+            // create paragraph
+            const aboutMeText = document.createElement("p")
+            aboutMeText.textContent = aboutMe
+            // create image
+            const headshotContainer = document.createElement("div")
+            headshotContainer.className = 'headshotCotainer'
+            const headshotImg = document.createElement("img")
+            headshotImg.src = headshot
+            headshotImg.alt = 'headshot image'
+            headshotImg.style.backgroundPosition = 'center center'
+            headshotImg.style.backgroundRepeat = 'no-repeat'
+            headshotImg.style.backgroundSize = 'cover'
+            // append paragraph
+            aboutMeContainer.appendChild(aboutMeText)
+            // append image
+            aboutMeContainer.appendChild(headshotContainer)
+            headshotContainer.append(headshotImg)
+        }
     }
 }
 
@@ -46,17 +48,15 @@ const getProjectData = async () => {
         const spotlightLink = document.createElement('a')
         spotlightLink.textContent = 'Click here to see more...'
 
-        const projectsMarkup = []
-        for (const [index, project] of projects.entries()) {
+        const projectsMarkup = document.createDocumentFragment()
+        projects.forEach(project => {
             const {
                 project_id,
                 project_name,
                 short_description,
-                long_description,
-                card_image,
-                spotlight_image,
-                url
+                card_image
             } = project || {}
+            const projectFragment = document.createDocumentFragment()
             const projectContainer = document.createElement('div')
             projectContainer.className = 'projectCard'
             projectContainer.id = project_id
@@ -69,11 +69,21 @@ const getProjectData = async () => {
             const projectDescription = document.createElement('p')
             projectDescription.textContent = short_description
             // add elements to project in carousel
-            projectContainer.appendChild(projectTitle)
-            projectContainer.appendChild(projectDescription)
-            projectsMarkup.push(projectContainer)
-            // add click listener for selecting project as spotlight
-            projectContainer.addEventListener('click', () => {
+            const projectDataFragment = document.createDocumentFragment()
+            projectDataFragment.appendChild(projectTitle)
+            projectDataFragment.appendChild(projectDescription)
+            projectContainer.appendChild(projectDataFragment)
+            projectFragment.appendChild(projectContainer)
+            projectsMarkup.appendChild(projectFragment)
+        })
+        // add projects to carousel
+        projectsContainer.append(projectsMarkup)
+        const handleProjectSelect = e => {
+            const projectEl = e.target
+            const { id } = projectEl || {}
+            const selectedProject = projects.find(({ project_id }) => project_id === id)
+            if (selectedProject) {
+                const { project_name, long_description, url, spotlight_image } = selectedProject || {}
                 spotlightTitle.textContent = project_name || ''
                 spotlightDescription.textContent = long_description || ''
                 spotlightLink.href = url || ''
@@ -82,12 +92,10 @@ const getProjectData = async () => {
                 spotlightContainer.style.backgroundPosition = 'center center'
                 spotlightContainer.style.backgroundRepeat = 'no-repeat'
                 spotlightContainer.style.backgroundSize = 'cover'
-            })
-            // select first project
-            if (index === 0) projectContainer.click()
+            }
         }
-        // add projects to carousel
-        projectsContainer.append(...projectsMarkup)
+        // add click listener for selecting project as spotlight
+        projectsContainer.addEventListener('click', handleProjectSelect)
         // add spotlight elements
         projectSpotlightContainer.append(...[spotlightTitle, spotlightDescription, spotlightLink])
         // add listeners for navigation arrows
@@ -163,7 +171,7 @@ const handleFormSubmit = (e) => {
     // extract form data
     const formData = new FormData(e.target)
     // convert form data to object
-    const form = [...formData.entries()].reduce((form, field) => ({ ...form, [field[0]]: field[1] }), {})
+    const form = Object.fromEntries(formData)
     const isValid = handleFormValidate(form)
     if (isValid) alert('Congratulations! Form submission is successful!')
 }
