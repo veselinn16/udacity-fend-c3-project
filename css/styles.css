@@ -38,6 +38,10 @@ header {
     }
 }
 
+.error {
+    color: red;
+}
+
 html {
     scroll-behavior: smooth;
 }

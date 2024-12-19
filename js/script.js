@@ -169,14 +169,15 @@ const handleFormSubmit = (e) => {
 }
 
 formEl.addEventListener('submit', handleFormSubmit)
+
 textAreaEl.addEventListener('input', e => {
     // show live chars count update
     const newChars = (e.target.value || '').trim().length
     textAreaCharsEl.textContent = `Characters: ${newChars}/${messageCharsLimit}`
     if (newChars > messageCharsLimit) {
-        textAreaCharsEl.style.color = 'red'
+        textAreaCharsEl.classList.add('error')
     } else {
-        textAreaCharsEl.style.color = '#201b13'
+        textAreaCharsEl.classList.remove('error')
     }
 })
 
